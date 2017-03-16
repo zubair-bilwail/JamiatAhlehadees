@@ -1,0 +1,324 @@
+﻿@model CommonLayer.CommonModels.NewMadarsaOperation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="box-header with-border">
+    <h3 class="box-title">New Madarsa Operation</h3>
+</div>
+<br />
+
+
+@using (Html.BeginForm("Create", "NewMadarsa", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        <form class="form-horizontal form-label-left">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <input type="hidden" id="txtId" value="@Model.Id" class="form-control RequiredTextField" />
+                        <label for="HeadMasterName" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Head Master</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtHeadMasterName" value="@Model.HeadMasterName" name="HeadMasterName" class="form-control" placeholder="Head Master Name" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label col-lg-4 col-md-2 col-sm-3 col-xs-4">Head Name</label>
+                        <div class="col-lg-8 col-md-4 col-sm-9 col-xs-8">
+                            @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                            <select class="form-control select2 ddnHead" id="ddnHead" name="Head">
+                                <option value="0">Select</option>
+
+                                @if (Model.UserList1 != null)
+                                {
+                                    foreach (var item in Model.UserList1)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.Head)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Expected Students</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtExpectedStudents" value="@Model.ExpectedStudents" name="ExpectedStudents" class="form-control" placeholder="Expected Students" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Boys</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtBoys" value="@Model.Boys" name="Boys" class="form-control" placeholder="Boys" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Girls</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtGirls" value="@Model.Girls" name="Girls" class="form-control" placeholder="Girls" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Teachers</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtTeachers" value="@Model.Teachers" name="Teachers" class="form-control" placeholder="Teachers" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label col-lg-4 col-md-2 col-sm-3 col-xs-4">Committee Name</label>
+                        <div class="col-lg-8 col-md-4 col-sm-9 col-xs-8">
+                            @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                            <select class="form-control select2 ddnCommitteeId" id="ddnCommitteeId" name="CommitteeId">
+                                <option value="0">Select</option>
+
+                                @if (Model.AddMadarsaCommitteeList != null)
+                                {
+                                    foreach (var item in Model.AddMadarsaCommitteeList)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.CommitteeId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.CommitteeName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Residential facility</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <div class="form-group">
+                                <select class="form-control select2 ddnResidential" id="ddnResidential" name="Residential">
+                                    <option>Select</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">MonthlyCost</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtMonthlyCost" value="@Model.MonthlyCost" name="MonthlyCost" class="form-control" placeholder="Monthly Cost" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Per Student Cost</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtPerStudentCost" value="@Model.PerStudentCost" name="PerStudentCost" class="form-control" placeholder="Per Student Cost" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Source of Revenue</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtSourceofRevenue" value="@Model.SourceofRevenue" name="SourceofRevenue" class="form-control" placeholder="Source of Revenue" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Location</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtLocation" value="@Model.Location" name="Location" class="form-control" placeholder="Location" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Address</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtAddress" value="@Model.Address" name="Address" class="form-control" placeholder="Address" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">House Own/Rented</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <div class="form-group">
+                                <select class="form-control select2 ddnOwnRented" id="ddnOwnRented" name="OwnRented">
+                                    <option>Select</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Total Land Area</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtTotalLandArea" value="@Model.TotalLandArea" name="TotalLandArea" class="form-control" placeholder="Total Land Area" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Constructed Area</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtConstructedArea" value="@Model.ConstructedArea" name="ConstructedArea" class="form-control" placeholder="Constructed Area" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">Charging Student</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <div class="form-group">
+                                <select class="form-control select2 ddnChargingStudent" id="ddnChargingStudent" name="ChargingStudent">
+                                    <option>Select</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label  col-lg-4 col-md-4 col-sm-3 col-xs-4">How Much</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" id="txtHowMuch" value="@Model.Howmuch" name="HowMuch" class="form-control" placeholder="Total Amount" />
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label class="control-label col-lg-4 col-md-2 col-sm-3 col-xs-4">User Name</label>
+                        <div class="col-lg-8 col-md-4 col-sm-9 col-xs-8">
+                            @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                            <select class="form-control select2 ddnUserId" id="ddnUserId" name="UserId">
+                                <option value="0">Select</option>
+
+                                @if (Model.UserList1 != null)
+                                {
+                                    foreach (var item in Model.UserList1)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.UserId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>                   
+                    <input type="hidden" id="hdnId" value="@Model.Id" name="Id" />
+                    <input type="hidden" id="hdnCreatedBy" value="1" name="CreatedBy" />
+                    @if (Model.CreateDate != null)
+                    {
+                        <input type="hidden" id="hdnCreatedDate" value="@Model.CreateDate" name="CreatedDate" />
+                    }
+                    else
+                    {
+                        <input type="hidden" id="hdnCreatedDate" value="@DateTime.Now" name="CreatedDate" />
+                    }
+                    <input type="hidden" id="hdnStatus" value="True" name="Status" />
+
+                </div>
+            </div>
+
+
+            <div class="form-group col-lg-12">
+                <div class="col-md-offset-5 col-md-2">
+                    @if (Model.Id != null && Model.Id != 0)
+                    {
+                        <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                            Update
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                            Register
+                        </button>
+                    }
+                </div>
+                <div class="col-md-2">
+                    <button value="Edit"
+                            class="btn-block btn btn-danger" type="button" id="addressSearch"
+                            onclick="location.href='@Url.Action("Index", "NewMadarsa")'">
+                        Cancel
+                    </button>
+                    </div>
+                </div>
+        </form>
+        
+        </div>
+        
+        }
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on("click", "#btnRegister,#btnRegisterUpdate", function (e) {
+            var _NewMadarsa = {
+                Id: $("#hdnId").val(),
+                HeadMasterName: $("#txtHeadMasterName").val(),
+                HeadUserId: $(".ddnHead").val(),
+                ExpectedStudents: $("#txtExpectedStudents").val(),
+                Boys: $("#txtBoys").val(),
+                Girls: $("#txtGirls").val(),
+                Teachers: $("#txtTeachers").val(),
+                CommitteeName:$(".ddnCommitteeId").val(),
+                Residential:$(".ddnResidential").val(),
+                MonthlyCost:$("#txtMonthlyCost").val(),
+                PerStudentCost:$("#txtPerStudentCost").val(),
+                SourceofRevenue:$("#txtSourceofRevenue").val(),
+                Location: $("#txtLocation").val(),
+                Address:$("#txtAddress").val(),
+                OwnRented:$(".ddnOwnRented").val(),
+                TotalLandArea:$("#txtTotalLandArea").val(),
+                ConstructedArea:$("#txtConstructedArea").val(),
+                ChargingStudent: $(".ddnChargingStudent").val(),
+                HowMuch: $("#txtHowMuch").val(),
+                UserId: $(".ddnUserId").val(),
+                CreatedBy:$("#hdnCreatedBy").val(),
+                CreateDate: $("#hdnCreatedDate").val(),
+                Status: $("#hdnStatus").val(),
+
+            };
+            
+            buttonDisabledReg();
+            $.ajax({
+                url: "http://localhost:49248/Admin/NewMadarsa/Create",
+                type: "POST",
+                data: _NewMadarsa,
+                success: function (response) {
+                    location.href = '/Admin/NewMadarsa/Index';
+
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    buttonEnableReg();
+                    console.log(err);
+                }
+            });
+        });
+    });
+        function buttonEnableReg() {
+        $("#btnRegister span,#btnRegisterUpdate span").hide();
+        $("#btnRegister,#btnRegisterUpdate").prop("disabled", false);
+    }
+
+
+        //function buttonDisabledReg() {
+        //    $("#btnRegister span,#btnRegisterUpdate span").show();
+        //    $("#btnRegister,#btnRegisterUpdate").prop("disabled", true);
+
+            function ClearFields() {
+                $(".RequiredTextField").each(function () {
+                    $(this).val('');
+                });
+
+            }
+</script>
+
+

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<CommonLayer.CommonModels.MasjidExtension>
+@{
+    ViewBag.Title = "Index";
+
+}
+<div class="box-header with-border">
+    <h3 class="box-title">Masjid Extension Index</h3>
+</div>
+<br />
+
+
+<div class="col-lg-12">
+    <button value="Create New"
+            class="btn btn-info btn-sm" type="button" id="addressSearch"
+            onclick="location.href='@Url.Action("Create")'">
+        Create New
+    </button>
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Masjid Name</b></td>
+                <td><b>Area</b></td>
+                <td><b>Construction Cost</b></td>
+                <td><b>ExistingFloors</b></td>
+                <td><b>AmountCollected</b></td>
+                <td><b>CommitteeName</b></td>
+                <td><b>Name</b></td>
+                <td><b>Head</b></td>
+                <td><b>EngineerName</b></td>
+                <td><b>EngineerContact</b></td>
+                <td><b>ElevationImg</b></td>
+                <td><b>PlanImg</b></td>
+                <td><b>ConstructionImg1</b></td>
+                <td><b>ConstructionImg2</b></td>
+                <td><b>ConstructionImg3</b></td>
+                <td><b>CreateDate</b></td>
+                <td><b>CreateBy</b></td>
+                <td><b>Status</b></td>
+                <td>Edit</td>
+                <td>Delete</td>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.MasjidName</td>
+                    <td>@item.Area</td>
+                    <td>@item.ConstructionCost</td>
+                    <td>@item.ExistingFloors</td>
+                    <td>@item.AmountCollected</td>
+                    <td>@item.CommitteeName</td>
+                    <td>@item.Name</td>
+                    <td>@item.Head</td>
+                    <td>@item.EngineerName</td>
+                    <td>@item.EngineerContact</td>
+                    <td>@item.ElevationImg</td>
+                    <td>@item.PlanImg</td>
+                    <td>@item.ConstructionImg1</td>
+                    <td>@item.ConstructionImg2</td>
+                    <td>@item.ConstructionImg3</td>
+                    @*<td>@item.CreatedDate</td>
+                        <td>@item.CreatedBy</td>*@
+                    <td>@item.Status</td>
+
+                    <td>
+                        <button value="Edit"
+                                class="btn btn-info btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Create", "MasjidExtension" ,new {id = item.Id })'">
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button value="Delete"
+                                class="btn btn-info btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Delete", "MasjidExtension" ,new {id = item.Id })'">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

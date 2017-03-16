@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CommonLayer.CommonModels.AddMasjidCommittee>
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+<div class="box-header with-border">
+    <h3 class="box-title">Masjid Committee Index</h3>
+</div>
+<br />
+<div class="col-lg-12">
+    <button value="Create New"
+            class="btn btn-info btn-sm" type="button" id="addressSearch"
+            onclick="location.href='@Url.Action("Create")'">
+        Create New
+    </button>
+        <table class="table table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <td><b>Id</b></td>
+                    <td><b>Committee Name</b></td>
+                    <td><b>Masjid Name</b></td>
+                    <td><b>Edit</b></td>
+                    <td><b>Details</b></td>
+                    <td><b>Delete</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CommitteeName</td>
+                        <td>@item.MasjidName</td>
+                        <td>
+                            <button value="Edit"
+                                    class="btn btn-primary" type="button" id="addressSearch"
+                                    onclick="location.href='@Url.Action("Create", "AddMasjidCommittee" ,new {id = item.Id })'">
+                                Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button value="Details"
+                                    class="btn btn-info" type="button" id="addressSearch"
+                                    onclick="location.href='@Url.Action("Details", "AddMasjidCommittee" ,new {id = item.Id })'">
+                                Details
+                            </button>
+                        </td>
+
+                        <td>
+                            <button value="Delete"
+                                    class="btn btn-danger" type="button" id="addressSearch"
+                                    onclick="location.href='@Url.Action("Delete", "AddMasjidCommittee" ,new {id = item.Id })'">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

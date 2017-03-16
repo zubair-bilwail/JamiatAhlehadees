@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CommonLayer.CommonModels.AddMadarsa>
+@{
+    ViewBag.Title = "Index";
+   
+}
+
+<div class="box-header with-border">
+    <h3 class="box-title">Madarsa Index</h3>
+</div>
+<br />
+
+<div class="col-lg-12">
+    <button value="Create New"
+            class="btn btn-primary btn-sm" type="button" id="addressSearch"
+            onclick="location.href='@Url.Action("Create")'">
+        Create New
+    </button>
+</div>
+<div>
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Madarsa Name</b></td>
+                <td><b>Head User Name</b></td>
+                <td><b>Halqa Name</b></td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.MadarsaName</td>
+                    <td>@item.HeadUserName</td>
+                    <td>@item.HalqaName</td>
+                    <td>
+                        <button value="Edit"
+                                class="btn btn-primary btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Create", "AddMadarsa" ,new {id = item.Id })'">
+                            Edit
+                        </button>
+                    </td>
+                    
+                    <td>
+                        <button value="Delete"
+                                class="btn btn-danger btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Delete", "AddMadarsa" ,new {id = item.Id })'">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

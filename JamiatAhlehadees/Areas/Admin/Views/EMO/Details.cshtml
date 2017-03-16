@@ -1,0 +1,103 @@
+﻿@model CommonLayer.CommonModels.ExistingMadarsaOperations
+
+
+<table class="table table-bordered table-hover table-responsive">
+    <tbody>
+        <tr>
+            <th>HeadMasterName</th>
+            <td>@Model.HeadMasterName</td>
+        </tr>
+        <tr>
+            <th>Head</th>
+            <td>@Model.Head</td>
+        </tr>
+        <tr>
+            <th>ExpectedStudents</th>
+            <td>@Model.ExpectedStudents</td>
+        </tr>
+        <tr>
+            <th>Boys</th>
+            <td>@Model.Boys</td>
+        </tr>
+        <tr>
+            <th>Girls</th>
+            <td>@Model.Girls</td>
+        </tr>
+        <tr>
+            <th>Teachers</th>
+            <td>@Model.Teachers</td>
+        </tr>
+        <tr>
+            <th>Residential</th>
+            <td>@Model.Residential</td>
+        </tr>
+        <tr>
+            <th>MonthlyCost</th>
+            <td>@Model.MonthlyCost</td>
+        </tr>
+        <tr>
+            <th>PerStudentCost</th>
+            <td>@Model.PerStudentCost</td>
+        </tr>
+        <tr>
+            <th>SourceofRevenue</th>
+            <td>@Model.SourceofRevenue</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>@Model.Location</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>@Model.Address</td>
+        </tr>
+        <tr>
+            <th>OwnRented</th>
+            <td>@Model.OwnRented</td>
+        </tr>
+
+        <tr>
+            <th>TotalLandArea</th>
+            <td>@Model.TotalLandArea</td>
+        </tr>
+        <tr>
+            <th>ConstructedArea</th>
+            <td>@Model.ConstructedArea</td>
+        </tr>
+        <tr>
+            <th>ChargingStudent</th>
+            <td>@Model.ChargingStudent</td>
+        </tr>
+        <tr>
+            <th>Howmuch</th>
+            <td>@Model.Howmuch</td>
+        </tr>
+
+        <tr>
+            <th>CreateDate</th>
+            <td>@Model.CreateDate</td>
+        </tr>
+        <tr>
+            <th>CreateBy</th>
+            <td>@Model.CreatedBy</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>@Model.Status</td>
+        </tr>
+    </tbody>
+</table>
+
+<button value="Edit"
+        class="btn btn-info btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Create", "EMO" ,new {id = Model.Id })'">
+    <span class="glyphicon glyphicon-pencil"></span>
+</button> |
+<button value="Back"
+        class="btn btn-danger btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Index")'">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+</button>
+
+
+

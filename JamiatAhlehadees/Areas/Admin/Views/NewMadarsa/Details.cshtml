@@ -1,0 +1,54 @@
+﻿@model CommonLayer.CommonModels.NewMadarsaOperation
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+    <tr>
+        <td>User-Id</td>
+        <td>@Model.UserId</td>
+    </tr>
+    <tr>
+        <td>User-Name</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>User-Phone</td>
+        <td>@Model.Contact</td>
+    </tr>
+    <tr>
+        <td>Requried-Amount</td>
+        <td>@Model.Howmuch</td>
+    </tr>
+    <tr>
+        <td>Site-Picture-1</td>
+        <td>@Model.Picture1</td>
+    </tr>
+    <tr>
+        <td>Site-Picture-2</td>
+        <td>@Model.Picture2</td>
+    </tr>
+    <tr>
+        <td>Site-Picture-3</td>
+        <td>@Model.Picture3</td>
+    </tr>
+</table>
+
+<div>
+    @using (Html.BeginForm())
+    {   <input type="hidden" id="hdnId" value="@Model.Id" name="Id" />
+        <input type="hidden" id="hdnId" value="2" name="RequestType" />
+        <label id="lblStatus">Approval</label>
+        <input type="radio" id="rdApprove" value="true" name="Status"/>
+        <label id="lblStatus">DisApproval</label>
+        <input type="radio" id="rdsDisApprove" value="false" name="Status"/>
+        <br />
+        <label id="lblComment">Comment</label>
+        <textarea id="txtComment" name="Comment"></textarea>
+        <br />
+        <input type="submit" id="btnDone" value="Done" />
+        
+    }
+</div>

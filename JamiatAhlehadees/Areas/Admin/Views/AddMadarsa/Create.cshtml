@@ -1,0 +1,181 @@
+﻿@model CommonLayer.CommonModels.AddMadarsa
+@{
+    ViewBag.Title = "Create";
+}
+<div class="box-header with-border">
+    <h3 class="box-title">Add Madarsa</h3>
+</div>
+<br />
+
+@using (Html.BeginForm("Create", "AddMadarsa", FormMethod.Post))
+{
+    
+
+    <div class="container">
+        <div class="row">
+            <form class="form-horizontal form-label-left">
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">Madarsa Name</label>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <input type="text" class="form-control" id="txtMadarsaName" value="@Model.MadarsaName"  placeholder="Madarsa Name">
+                    </div>
+                </div>
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">Head User Name</label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                        @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                        <select class="form-control select2 ddnHeadUserId" id="ddnHeadUserId" name="HeadUserId">
+                            <option value="0">Select User Name</option>
+
+                            @if (Model.UserList != null)
+                            {
+                                foreach (var item in Model.UserList)
+                                {
+                                    string isSelected = string.Empty;
+                                    if (item.Id == Model.HeadUserId)
+                                    {
+                                        isSelected = "selected";
+                                    }
+                                    <option value="@item.Id" @isSelected>@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    </div>
+                
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">Halqa Name</label>
+
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                        <select class="form-control select2  ddnHalqaId" id="ddnHalqaId" name="HalqaId">
+                            <option value="0">Select Halqa Name</option>
+
+                            @if (Model.AddHAlqaList != null)
+                            {
+                                foreach (var item in Model.AddHAlqaList)
+                                {
+                                    string isSelected = string.Empty;
+                                    if (item.Id == Model.HalqaId)
+                                    {
+                                        isSelected = "selected";
+                                    }
+                                    <option value="@item.Id" @isSelected>@item.HalqaName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+</div>
+                    <div class="form-group col-lg-12">
+                        <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">Latitude</label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input type="text" class="form-control " id="txtLatitude" value="@Model.Latitude"  placeholder="Latitude">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-12">
+                        <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">Longitude</label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <input type="text" class="form-control " id="txtLongitude" value="@Model.Longitude" placeholder="Longitude">
+                        </div>
+                    </div>
+
+                        <input type="hidden" class="hdnId" id="hdnId" value="@Model.Id" />
+                        <input type="hidden" class="hdnCreatedBy" id="hdnCreatedBy" value="@Model.CreatedBy" />
+                        <input type="hidden" class="hdnCreatedDate" id="hdnCreatedDate" value="@Model.CreatedDate" />
+                        <input type="hidden" class="hdnStatus" id="hdnStatus" value="@Model.Status"/>
+                <div class="form-group col-lg-12">
+                    <div class="col-md-offset-5 col-md-2">
+                        @if (Model.Id != null && Model.Id != 0)
+                        {
+                            <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                                Update
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                                Register
+                            </button>
+                        }
+                    </div>
+                    <div class="col-md-2">
+                        <button value="Cancel"
+                                class="btn-block btn btn-danger" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Index")'">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+</form>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        
+        $(document).on("click", "#btnRegister,#btnRegisterUpdate", function (e) {
+            var _Madarsa = {
+                Id: $('.hdnId').val(),
+                MadarsaName: $('#txtMadarsaName').val(),
+                HeadUserId: $('.ddnHeadUserId').val(),
+                HalqaId: $(".ddnHalqaId").val(),
+                Latitude: $('#txtLatitude').val(),
+                Longitude: $('#txtLongitude').val(),
+                CreatedBy: $('#hdnCreatedBy').val(),
+                CreatedDate: $('#hdnCreatedDate').val(),
+                Status: $('#hdnStatus').val(),
+                
+            };
+            alert($('#txtMadarsaName').val());
+            buttonDisabledReg();
+            $.ajax({
+                url: "http://localhost:49248/Admin/AddMadarsa/Create",
+                type: "POST",
+                data: _Madarsa,
+                success: function (response) {
+                    location.href = '/Admin/AddMadarsa/Index';
+                  
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    buttonEnableReg();
+                    console.log(err);
+                }
+            });
+        });
+    });
+        function buttonEnableReg() {
+        $("#btnRegister span,#btnRegisterUpdate span").hide();
+        $("#btnRegister,#btnRegisterUpdate").prop("disabled", false);
+    }
+
+
+        function buttonDisabledReg() {
+            $("#btnRegister span,#btnRegisterUpdate span").show();
+            $("#btnRegister,#btnRegisterUpdate").prop("disabled", true);
+
+            function ClearFields() {
+                $(".RequiredTextField").each(function () {
+                    $(this).val('');
+                });
+
+            }
+        }
+
+</script>
+
+

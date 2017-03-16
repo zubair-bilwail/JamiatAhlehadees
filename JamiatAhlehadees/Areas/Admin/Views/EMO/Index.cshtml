@@ -1,0 +1,102 @@
+﻿@model IEnumerable<CommonLayer.CommonModels.ExistingMadarsaOperations>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Existing Madarsa </h2>
+
+<div class="col-lg-12">
+    <button value="Create New"
+            class="btn btn-info btn-sm" type="button" id="addressSearch"
+            onclick="location.href='@Url.Action("Create")'">
+        <span class="glyphicon glyphicon-plus"></span>Add New
+    </button>
+</div>
+<div class="col-lg-12 ">
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Head Master</td>
+                @*<td>Head Of Dept</td>*@
+                <td>Expected Student</td>
+                <td>Boys</td>
+                <td>Girls</td>
+                @*<td>Teachers</td>*@
+                @*<td>Residential</td>*@
+                <td>Monthly Cost</td>
+                @*<td>Per Student cost</td>*@
+                <td>Source Of Revenue</td>
+                <td>Location</td>
+                <td>Address</td>
+                @*<td>Own/Rented</td>
+                <td>Total Land Area</td>*@
+                <td>Constructed Area</td>
+                <td>Charging Student</td>
+                <td>How Much</td>
+                @*<td>CreateDate</td>               
+                <td>CreateBy</td>
+                <td>Status</td>*@
+                <td>Committee Name</td>
+                <td>Edit</td>
+                <td>Details</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                <td>@item.Id</td>
+                <td>@item.HeadMasterName</td>
+                @*<td>@item.HeadOfDept</td>*@
+                <td>@item.ExpectedStudents</td>
+                <td>@item.Boys</td>
+                <td>@item.Girls</td>
+                @*<td>@item.Teachers</td>*@
+                @*<td>@item.Residential</td>*@
+                <td>@item.MonthlyCost</td>
+                @*<td>@item.PerStudentCost</td>*@
+                <td>@item.SourceofRevenue</td>
+                <td>@item.Location</td>
+                <td>@item.Address</td>
+                @*<td>@item.OwnRented</td>
+                <td>@item.TotalLandArea</td>*@
+                <td>@item.ConstructedArea</td>
+                <td>@item.ChargingStudent</td>
+                <td>@item.Howmuch</td>
+                @*<td>@item.CreateDate</td>               
+                <td>@item.CreatedBy</td>
+                <td>@item.Status</td>*@
+                <td>@item.CommitteeName</td>
+               
+                    
+
+                    <td>
+                        <button value="Edit"
+                                class="btn btn-info btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Create", "EMO", new { id = item.Id })'">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button value="Details"
+                                class="btn btn-primary btn-primary" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Details", "EMO" ,new {id = item.Id })'">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button value="Delete"
+                                class="btn btn-danger btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Delete", "EMO", new { id = item.Id })'">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

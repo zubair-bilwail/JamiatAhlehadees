@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+    <style>
+        body {
+            margin-top: 50px;
+        }
+
+        .glyphicon {
+            margin-right: 10px;
+        }
+
+        .panel-body {
+            padding: 0px;
+        }
+
+            .panel-body table tr td {
+                padding-left: 15px;
+            }
+
+            .panel-body .table {
+                margin-bottom: 0px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <span class="glyphicon glyphicon-folder-close">
+                                    </span>Content
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">Articles</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">News</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">Newsletters</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">Comments</a>
+                                            <span class="badge">42</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    <span class="glyphicon glyphicon-th">
+                                    </span>Modules
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Invoices</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Shipments</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Tex</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    <span class="glyphicon glyphicon-user">
+                                    </span>Account
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Change Password</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
+                                                Delete Account
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                    <span class="glyphicon glyphicon-file">
+                                    </span>Reports
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <div class="well">
+                    <h1>
+                        Accordion Menu With Icon
+                    </h1>
+                    Admin Dashboard Accordion Menu
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Name</td>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">2</div>
+                    <div role="tabpanel" class="tab-pane" id="messages">3.</div>
+                    <div role="tabpanel" class="tab-pane" id="settings">.4.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="http://bootsnipp.com/dist/scripts.min.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="text/javascript">
+$(function(){
+        $('iframe.new-preview').each(function()
+        {
+                previewportWidth = $(this).parent().innerWidth()-15;
+                factor = previewportWidth/1200;
+console.log(factor);
+                $(this).css({
+    'height': '800px',
+    'width': '1200px',
+    '-ms-zoom': factor,
+    '-ms-transform': 'scale('+factor+')',
+    'transform': 'scale('+factor+')',
+    '-moz-transform': 'scale('+factor+')',
+    '-moz-transform-origin': '0 0',
+    '-o-transform': 'scale('+factor+')',
+    '-o-transform-origin': '0 0',
+    '-webkit-transform': 'scale('+factor+')',
+    '-webkit-transform-origin': '0 0'
+                });
+                $(this).parent().css('height',$(this).parent().innerWidth()*.75);
+        });
+$('iframe.snippet-preview').each(function()
+        {
+                previewportWidth = $(this).parent().parent().innerWidth()-30;
+                $(this).zoomer({ width: previewportWidth, height: $(this).parent().innerWidth()*.75, zoom: .5, message : '' ,messageURL : $(this).attr('data-url') })
+                $(this).zoomer('refresh');
+        });
+});
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+<script type="text/javascript">
+(function($) {
+    window.addEventListener('message', receiveMessage, false);
+    function receiveMessage(evt)
+    {
+        if (evt.origin !== 'http://bootsnipp.com') return;
+
+        if ((evt.data != undefined) && (evt.data) && (typeof evt.data === "number"))
+            if(evt.data >= 500) {
+//                $('#playground-container').css('height', evt.data+30+'px');
+            }
+    }
+
+    var version = '3.0.3';
+    var htmleditor = ace.edit("editor-html");
+    var jseditor = ace.edit("editor-js");
+    var csseditor = ace.edit("editor-css");
+
+    $('#theme_chooser').change(function(){
+        whichCSS = $(this).val();
+        document.getElementById('snippet-preview').contentWindow.changeCSS(whichCSS);
+    });
+
+    function setEditorOptions(editor, type){
+        editor.setTheme("ace/theme/clouds");
+        editor.setHighlightActiveLine(false);
+//        editor.setReadOnly(true);
+        editor.getSession().setMode("ace/mode/"+type);
+    };
+
+    setEditorOptions(htmleditor,'html');
+    setEditorOptions(jseditor,'javascript');
+    setEditorOptions(csseditor,'css');
+
+    function markActive(el)
+    {
+       $(el).siblings().removeClass('active');
+       $(el).addClass('active');
+    }
+
+    $('#show-html').click(function(e){
+        e.preventDefault();
+        $('#editor-html').show().siblings().hide();
+        markActive(this);
+        $('#preview-container').hide();
+        htmleditor.resize();
+    });
+
+    $('#show-js').click(function(e){
+        e.preventDefault();
+        $('#editor-js').show().siblings().hide();
+        $('#preview-container').hide();
+        markActive(this);
+        jseditor.resize();
+    });
+
+    $('#show-css').click(function(e){
+        e.preventDefault();
+        $('#editor-css').show().siblings().hide();
+        $('#preview-container').hide();
+        markActive(this);
+        csseditor.resize();
+    });
+
+    $('#show-preview').click(function(e){
+        e.preventDefault();
+
+        markActive(this);
+
+        $('.playground-editor').hide();
+
+        var html = buildSource(htmleditor, jseditor, csseditor);
+        var iframe = document.createElement('iframe');
+
+        iframe.src = 'about:blank';
+        iframe.frameBorder="0";
+        iframe.height = 496;
+        iframe.className = 'preview-iframe';
+
+        $('.preview-iframe').remove();
+        $('div#preview-container').append(iframe);
+
+        iframe.contentWindow.document.open('text/html', 'replace');
+        iframe.contentWindow.document.write(html);
+        iframe.contentWindow.document.close();
+
+        $('#preview-container').show();
+    });
+
+    var cssurls = {};
+    var jsurls = {};
+
+        cssurls['4.0.0'] = '//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css';
+    jsurls['4.0.0'] = '//cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js';
+        cssurls['3.3.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css';
+    jsurls['3.3.0'] = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js';
+        cssurls['3.2.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css';
+    jsurls['3.2.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js';
+        cssurls['3.1.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css';
+    jsurls['3.1.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js';
+        cssurls['3.0.3'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css';
+    jsurls['3.0.3'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js';
+        cssurls['3.0.1'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css';
+    jsurls['3.0.1'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js';
+        cssurls['3.0.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css';
+    jsurls['3.0.0'] = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js';
+        cssurls['2.3.2'] = '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css';
+    jsurls['2.3.2'] = '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js';
+
+
+    function buildSource(htmleditor, jseditor, csseditor)
+    {
+        var code = {};
+        code.html = htmleditor.getValue();
+        code.css = csseditor.getValue();
+        code.js = jseditor.getValue();
+        code.bootstrapcss = cssurls[version];
+        code.bootstrapjs = jsurls[version];
+
+        var template = "<!doctype html>\n\
+                        <html>\n\
+                            <head>\n\
+                                <meta charset='utf-8'>\n\
+                                <meta name='viewport' content='width=device-width, initial-scale=1'>\n\
+                                <title>Snippet - Bootsnipp.com</title>\n\
+                                <link href='|bootstrapcss|' rel='stylesheet'>\n\
+                                <style>|css|\x3C/style>\n\
+                                \x3Cscript type='text/javascript' src='//code.jquery.com/jquery-1.10.2.min.js'>\x3C/script>\n\
+                                \x3Cscript type='text/javascript' src='|bootstrapjs|'>\x3C/script>\n\
+                                \x3Cscript type='text/javascript'>|js|\x3C/script>\n\
+                            </head>\n\
+                            <body>\n\
+                            |html|\n\
+                            </body>\n\
+                        </html>";
+
+        content = template.replace(/\|(\w+)\|/g, function(match, str)
+        {
+            if(str in code) return code[str];
+            return '';
+        });
+
+        return content;
+    }
+
+
+})(jQuery);
+</script>

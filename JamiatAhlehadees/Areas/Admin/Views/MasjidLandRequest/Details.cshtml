@@ -1,0 +1,90 @@
+﻿@model CommonLayer.CommonModels.MasjidLandRequest
+
+
+
+<table class="table table-bordered table-hover table-responsive">
+    <tbody>
+        <tr>
+            <th>MasjidName</th>
+            <td>@Model.MasjidName</td>
+        </tr>
+        <tr>
+            <th>User Name</th>
+            <td>@Model.UserName</td>
+        </tr>
+        <tr>
+            <th>LandArea</th>
+            <td>@Model.LandArea</td>
+        </tr>
+        <tr>
+            <th>LandPrice</th>
+            <td>@Model.LandPrice</td>
+        </tr>
+        <tr>
+            <th>TotalLandValue</th>
+            <td>@Model.TotalLandValue</td>
+        </tr>
+        <tr>
+            <th>PurchasingFrom</th>
+            <td>@Model.PurchasingFrom</td>
+        </tr>
+        <tr>
+            <th>AmountPaid</th>
+            <td>@Model.AmountPaid</td>
+        </tr>
+        <tr>
+            <th>AmountNeeded</th>
+            <td>@Model.AmountNeeded</td>
+        </tr>
+        <tr>
+            <th>TimePeriod</th>
+            <td>@Model.TimePeriod</td>
+        </tr>
+        <tr>
+            <th>CommitteeName</th>
+            <td>@Model.CommitteeName</td>
+        </tr>
+        <tr>
+            <th>CommitteHeadName</th>
+            <td>@Model.CommitteHeadName</td>
+        </tr>
+        @*<tr>
+            <th>ReligiouPlaces</th>
+            <td>@Model.ReligiouPlaces</td>
+        </tr>*@
+        <tr>
+            <th>ReligiousPlaceDetails</th>
+            <td>@Model.ReligiousPlaceDetails</td>
+        </tr>
+        <tr>
+            <th>ReligiousPlaceHowFar</th>
+            <td>@Model.ReligiousPlaceHowFar</td>
+        </tr>
+
+
+        <tr>
+            <th>CreateDate</th>
+            <td>@Model.CreatedDate</td>
+        </tr>
+        <tr>
+            <th>CreateBy</th>
+            <td>@Model.CreatedBy</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>@Model.Status</td>
+        </tr>
+    </tbody>
+</table>
+
+<button value="Edit"
+        class="btn btn-info btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Create", "MasjidLandRequest" ,new {id = Model.Id })'">
+      <span class="glyphicon glyphicon-pencil"></span>
+</button> |
+<button value="Back"
+        class="btn btn-danger btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Index")'">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+</button>
+

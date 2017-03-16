@@ -1,0 +1,73 @@
+﻿@model CommonLayer.CommonModels.MasjidConstruction
+
+
+<table class="table table-bordered table-hover table-responsive">
+    <tbody>
+        <tr>
+            <th>Location</th>
+            <td>@Model.Location</td>
+        </tr>
+        <tr>
+            <th>Area</th>
+            <td>@Model.Area</td>
+        </tr>
+        <tr>
+            <th>ConstructionCost</th>
+            <td>@Model.ConstructionCost</td>
+        </tr>
+        <tr>
+            <th>Floors</th>
+            <td>@Model.Floors</td>
+        </tr>
+        <tr>
+            <th>AmountCollected</th>
+            <td>@Model.AmountCollected</td>
+        </tr>
+        <tr>
+            <th>User Name</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>CommitteeName</th>
+            <td>@Model.CommitteeName</td>
+        </tr>
+        <tr>
+            <th>Head</th>
+            <td>@Model.Head</td>
+        </tr>
+        <tr>
+            <th>EngineerName</th>
+            <td>@Model.EngineerName</td>
+        </tr>
+        <tr>
+            <th>EngineerContact</th>
+            <td>@Model.EngineerContact</td>
+        </tr>
+       
+        <tr>
+            <th>CreateDate</th>
+            <td>@Model.CreatedDate</td>
+        </tr>
+        <tr>
+            <th>CreateBy</th>
+            <td>@Model.CreatedBy</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>@Model.Status</td>
+        </tr>
+    </tbody>
+</table>
+
+<button value="Edit"
+        class="btn btn-info btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Create", "MasjidConstruction" ,new {id = Model.Id })'">
+   <span class="glyphicon glyphicon-pencil"></span>
+</button> |
+<button value="Back"
+        class="btn btn-danger btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Index")'">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+</button>
+
+

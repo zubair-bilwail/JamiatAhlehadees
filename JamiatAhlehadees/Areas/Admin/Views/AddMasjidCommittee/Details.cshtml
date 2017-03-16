@@ -1,0 +1,33 @@
+﻿@model CommonLayer.CommonModels.AddMasjidCommittee
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h2>Masjid Committee Details</h2>
+<div class="col-lg-6"></div>
+<table class="table table-hover table-responsive">
+    <tbody>
+        <tr><th>CommitteeName</th><td>@Model.CommitteeName</td></tr>
+        <tr><th>MasjidName</th><td>@Model.MasjidName</td></tr>
+        <tr><th>CreateDate</th><td>@Model.CreatedDate</td></tr>
+        <tr><th>CreateBy</th><td>@Model.CreatedBy</td></tr>
+        <tr><th>Status</th><td>@Model.Status</td></tr>
+    </tbody>
+</table>
+<button value="Edit"
+        class="btn btn-primary btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Create", "AddMasjidCommittee" ,new {id = Model.Id })'">
+    Edit
+</button> |
+<button value="Back"
+        class="btn btn-info btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Index")'">
+    Back
+</button> |
+<button value="Delete"
+        class="btn btn-danger btn-sm" type="button" id="addressSearch"
+        onclick="location.href='@Url.Action("Delete", "AddMasjidCommittee" ,new {id = Model.Id })'">
+    Delete
+</button>
+

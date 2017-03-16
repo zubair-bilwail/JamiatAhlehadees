@@ -1,0 +1,284 @@
+﻿@model CommonLayer.CommonModels.MasjidLandRequest
+@{
+    ViewBag.Title = "Create";
+  
+}
+
+<h2>Masjid Land Request</h2>
+
+@using (Html.BeginForm("Create", "MasjidLandRequest", FormMethod.Post))
+{
+    <form class="form-horizontal form-label-left">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-6portfolio-item">
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Location
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="Location" value="@Model.Location" name="Location" class="form-control" placeholder="Location" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Area in Acre
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="LandArea" value="@Model.LandArea" name="LandArea" class="form-control" placeholder="Area In Acre" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            LandPrice
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="LandPrice" value="@Model.LandPrice" name="LandPrice" class="form-control" placeholder="LandPrice" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Total Land Value
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="TotalLandValue" value="@Model.TotalLandValue" name="TotalLandValue" class="form-control" placeholder="Total Land Value" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            PurchasingFrom
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="PurchasingFrom" value="@Model.PurchasingFrom" name="PurchasingFrom" class="form-control" placeholder="PurchasingFrom" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            AmountPaid
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="AmountPaid" value="@Model.AmountPaid" name="AmountPaid" class="form-control" placeholder="AmountPaid" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            AmountNeeded
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="AmountNeeded" value="@Model.AmountNeeded" name="AmountNeeded" class="form-control" placeholder="AmountNeeded" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            TimePeriod
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="TimePeriod" value="@Model.TimePeriod" name="TimePeriod" class="form-control" placeholder="TimePeriod" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            User Name
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                            <select class="form-control select2 select2-hidden-accessible ddnUserId" aria-hidden="true" name="UserId">
+                                <option value="0">User Name</option>
+
+                                @if (Model.UserList != null)
+                                {
+                                    foreach (var item in Model.UserList)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.UserId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+
+                            Committee Name
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+
+                            <select class="form-control select2 select2-hidden-accessible CommitteId" aria-hidden="true" name="CommitteId">
+                                <option value="0">Committee Name</option>
+
+                                @if (Model.AddMasjidCommitteeList != null)
+                                {
+                                    foreach (var item in Model.AddMasjidCommitteeList)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.CommitteId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.CommitteeName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+
+                            Masjid Name
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+
+                            <select class="form-control select2 select2-hidden-accessible MasjidId" aria-hidden="true" name="MasjidId">
+                                <option value="0">Masjid Name</option>
+
+                                @if (Model.AddMasjidList != null)
+                                {
+                                    foreach (var item in Model.AddMasjidList)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.MasjidId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.MasjidName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                        Religious Place Details 
+                    </label>
+                    <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                        <input type="text" id="ReligiousPlaceDetails" value="@Model.ReligiousPlaceDetails" name="ReligiousPlaceDetails" class="form-control" placeholder="ReligiousPlaceDetails" />
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+
+                        Religious Place How Far
+                    </label>
+                    <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                        <input type="text" id="ReligiousPlaceHowFar" value="@Model.ReligiousPlaceHowFar" name="ReligiousPlaceHowFar" class="form-control" placeholder="ReligiousPlaceHowFar" />
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+
+                        Committee Head 
+                    </label>
+                    <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                        <input type="text" id="CommitteHeadName" value="@Model.CommitteHeadName" name="CommitteHeadName" class="form-control" placeholder="CommitteHeadName in digits" />
+                    </div>
+                </div>
+                <input type="hidden" id="hdnId" value="@Model.Id" name="Id" />
+                <input type="hidden" id="hdnCreatedBy" value="1" name="CreatedBy" />
+                <input typeof="date" type="hidden" id="hdnCreatedDate" value="@DateTime.Now" name="CreatedDate" />
+                <input type="hidden" id="hdnStatus" value="true" name="Status" />
+                <br />
+                <div class="col-md-offset-4 col-md-2 col-xs-12">
+                    @if (Model.Id != null && Model.Id != 0)
+                    {
+                        <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                            Update
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                            Register
+                        </button>
+                    }
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <button value="Edit"
+                            class="btn btn-block btn-danger" type="button" id="addressSearch"
+                            onclick="location.href='@Url.Action("Index", "MasjidLandRequest")'">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+
+@*<div class="row" id="DataList">
+        @Html.Action("Index", "MasjidRenovation")
+    </div>*@
+
+
+<script>
+    $(document).ready(function () {
+        $(document).on("click", "#btnRegister,#btnRegisterUpdate", function (e) {
+            var _DataModel = {
+                Id: $("#hdnId").val(),
+                Location: $("#Location").val(),
+                LandArea: $("#LandArea").val(),
+                LandPrice: $("#LandPrice").val(),
+                TotalLandPrice: $("#TotalLandPrice").val(),
+                PurchasingFrom: $("#PurchasingFrom").val(),
+                AmountPaid: $("#AmountPaid").val(),
+
+                CommitteeId: $(".CommitteeId:Selected").val(),
+                UserId: $(".ddnUserId:Selected").val(),
+                MasjidId: $(".MasjidId:Selected").val(),
+
+                ReligiousPlaceDetails: $("#ReligiousPlaceDetails").val(),
+                ReligiousPlaceHowFar: $("#ReligiousPlaceHowFar").val(),
+                CommitteHeadName: $("#CommitteHeadName").val(),
+
+
+            };
+            buttonDisabledReg();
+            $.ajax({
+                url: "http://localhost:2936/Admin/MasjidLandRequest/Create",
+                type: "POST",
+                data: _DataModel,
+                success: function (response) {
+                    $("#DataList").empty().append(response);
+                    buttonEnableReg();
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    buttonEnableReg();
+                    console.log(err);
+                }
+            });
+        });
+    });
+
+    function buttonEnableReg() {
+        $("#btnRegister span,#btnRegisterUpdate span").hide();
+        $("#btnRegister,#btnRegisterUpdate").prop("disabled", false);
+    }
+
+
+    //function buttonDisabledReg() {
+    //    $("#btnRegister span,#btnRegisterUpdate span").show();
+    //    $("#btnRegister,#btnRegisterUpdate").prop("disabled", true);
+    //}
+
+    function ClearFields() {
+        $(".RequiredTextField").each(function () {
+            $(this).val('');
+        });
+        $(".RequiredRadioField").each(function () {
+            $(this).prop('checked', false);
+        });
+        $("#txtGuarId,#txtId").val('0');
+    }
+</script>

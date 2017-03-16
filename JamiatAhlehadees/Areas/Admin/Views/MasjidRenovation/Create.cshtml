@@ -1,0 +1,232 @@
+﻿@model CommonLayer.CommonModels.MasjidRenovation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Masjid Renovation</h2>
+
+@using (Html.BeginForm("Create", "MasjidRenovation", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <form class="form-horizontal form-label-left">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-md-6portfolio-item">
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Location
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="Location" value="@Model.Location" name="Location" class="form-control" placeholder="Location" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Area in Acre
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="Area" value="@Model.Area" name="Area" class="form-control" placeholder="Area In Acre" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Floors
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="Floors" value="@Model.Floors" name="Floors" class="form-control" placeholder="Floors" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            ConstructionCost
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="ConstructionCost" value="@Model.ConstructionCost" name="ConstructionCost" class="form-control" placeholder="ConstructionCost" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            AmountCollected
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="Area" value="@Model.AmountCollected" name="AmountCollected" class="form-control" placeholder="AmountCollected" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            Head
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            <input type="text" id="Head" value="@Model.Head" name="Head" class="form-control" placeholder="Head" />
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                            User Name
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                            <select class="form-control select2 select2-hidden-accessible ddnUserId" aria-hidden="true" name="UserId">
+                                <option value="0">User Name</option>
+
+                                @if (Model.UserList != null)
+                                {
+                                    foreach (var item in Model.UserList)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.UserId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+
+                          Masjid Name
+                        </label>
+                        <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                            @*<input type="hidden" id="hdnCategoryId" value="@(Model.ParentID)" />*@
+                            <select class="form-control select2 select2-hidden-accessible ddnMasjidId" aria-hidden="true" name="MasjidId">
+                                <option value="0">Masjid Name</option>
+
+                                @if (Model.AddMasjidList != null)
+                                {
+                                    foreach (var item in Model.AddMasjidList)
+                                    {
+                                        string isSelected = string.Empty;
+                                        if (item.Id == Model.MasjidId)
+                                        {
+                                            isSelected = "selected";
+                                        }
+                                        <option value="@item.Id" @isSelected>@item.MasjidName</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+                        EngineerName
+                    </label>
+                    <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                        <input type="text" id="EngineerName" value="@Model.EngineerName" name="EngineerName" class="form-control" placeholder="EngineerName" />
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                    <label class="control-label col-lg-offset-2 col-lg-2 col-xs-12">
+
+                        EngineerContact
+                    </label>
+                    <div class="col-md-4 col-sm-4 col-xs-4 col-xs-12">
+                        <input type="text" id="EngineerContact" value="@Model.EngineerContact" name="EngineerContact" class="form-control" placeholder="EngineerContact" />
+                    </div>
+                </div>
+                <input type="hidden" id="hdnId" value="@Model.Id" name="Id" />
+                <input type="hidden" id="hdnCreatedBy" value="1" name="CreatedBy" />
+                <input typeof="date" type="hidden" id="hdnCreatedDate" value="@DateTime.Now" name="CreatedDate" />
+                <input type="hidden" id="hdnStatus" value="true" name="Status" />
+                <br />
+                <div class="col-md-offset-4 col-md-2 col-xs-12">
+                    @if (Model.Id != null && Model.Id != 0)
+                    {
+                        <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                            Update
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                            Register
+                        </button>
+                    }
+                </div>
+                <div class="col-md-2 col-xs-12">
+                    <button value="Edit"
+                            class="btn btn-block btn-danger" type="button" id="addressSearch"
+                            onclick="location.href='@Url.Action("Index", "MasjidRenovation")'">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+
+@*<div class="row" id="DataList">
+    @Html.Action("Index", "MasjidRenovation")
+</div>*@
+
+
+<script>
+    $(document).ready(function () {
+        $(document).on("click", "#btnRegister,#btnRegisterUpdate", function (e) {
+            var _DataModel = {
+                Id: $("#hdnId").val(),
+                MasjidName: $("#Location").val(),
+                SadarUserName: $("#Area").val(),
+                HalqaId: $(".ddnUserId:Selected").val(),
+                Latitude: $("#ConstructionCost").val(),
+                Longitude: $("#Floors").val(),
+                MasjidName: $("#AmountCollected").val(),
+                SadarUserName: $("#Head").val(),
+                HalqaId: $(".ddnMasjidId:Selected").val(),
+                Latitude: $("#EngineerName").val(),
+                Longitude: $("#EngineerContact").val(),
+
+
+            };
+            buttonDisabledReg();
+            $.ajax({
+                url: "http://localhost:2936/Admin/MasjidRenovation/Create",
+                type: "POST",
+                data: _DataModel,
+                success: function (response) {
+                    $("#DataList").empty().append(response);
+                    buttonEnableReg();
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    buttonEnableReg();
+                    console.log(err);
+                }
+            });
+        });
+    });
+
+    function buttonEnableReg() {
+        $("#btnRegister span,#btnRegisterUpdate span").hide();
+        $("#btnRegister,#btnRegisterUpdate").prop("disabled", false);
+    }
+
+
+    //function buttonDisabledReg() {
+    //    $("#btnRegister span,#btnRegisterUpdate span").show();
+    //    $("#btnRegister,#btnRegisterUpdate").prop("disabled", true);
+    //}
+
+    function ClearFields() {
+        $(".RequiredTextField").each(function () {
+            $(this).val('');
+        });
+        $(".RequiredRadioField").each(function () {
+            $(this).prop('checked', false);
+        });
+        $("#txtGuarId,#txtId").val('0');
+    }
+</script>
+
+

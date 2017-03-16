@@ -1,0 +1,169 @@
+﻿@model IEnumerable<CommonLayer.CommonModels.Approval>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#ExistingMadarsaOperations" aria-controls="ExistingMadarsaOperations" role="tab" data-toggle="tab">ExistingMadarsaOperations</a></li>
+            <li role="presentation"><a href="#MadarsaLandRequest" aria-controls="MadarsaLandRequest" role="tab" data-toggle="tab">MadarsaLandRequest</a></li>
+            <li role="presentation"><a href="#MasjidConstruction" aria-controls="MasjidConstruction" role="tab" data-toggle="tab">MasjidConstruction</a></li>
+            <li role="presentation"><a href="#MasjidExtension" aria-controls="MasjidExtension" role="tab" data-toggle="tab">MasjidExtension</a></li>
+            <li role="presentation"><a href="#MasjidLandRequest" aria-controls="MasjidLandRequest" role="tab" data-toggle="tab">MasjidLandRequest</a></li>
+            <li role="presentation"><a href="#MasjidRenovation" aria-controls="MasjidRenovation" role="tab" data-toggle="tab">MasjidRenovation</a></li>
+            <li role="presentation"><a href="#NewMadarsaOperations" aria-controls="NewMadarsaOperations" role="tab" data-toggle="tab">NewMadarsaOperations</a></li>
+        </ul>
+    </div>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active col-lg-11" id="ExistingMadarsaOperations">
+            <h3>Existing Madarsa Operations</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 1))
+            {
+                    <tr>
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="MadarsaLandRequest">
+            <h3>Madarsa Land Request</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 2))
+            {
+                    <tr>
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="MasjidConstruction">
+            <h3>Masjid Construction</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 3))
+            {
+                    <tr>
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="MasjidExtension">
+            <h3>Masjid Extension</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 4))
+            {
+                    <tr>
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="MasjidLandRequest">
+            <h3>Masjid Land Request</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 5))
+            {
+                    <tr>
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="MasjidRenovation">
+            <h3>Masjid Renovation</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 6))
+            {
+                    <tr>
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="NewMadarsaOperations">
+            <h3>New Madarsa Operations</h3>
+            <table class="table table-bordered">
+                <tr>
+                    <td>RequestId</td>
+                    <td>RequestType</td>
+                    <td>Status</td>
+                    <td>Comments</td>
+                </tr>
+                @foreach (var item in Model.Where(x => x.RequestType == 7))
+            {
+                    <tr>
+                        @item.
+                        <td>@item.RequestId</td>
+                        <td>@item.RequestTypeName</td>
+                        <td>@item.Status</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

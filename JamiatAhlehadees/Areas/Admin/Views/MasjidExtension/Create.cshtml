@@ -1,0 +1,169 @@
+﻿@model CommonLayer.CommonModels.MasjidExtension
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="box-header with-border">
+    <h3 class="box-title">Add Extension</h3>
+</div>
+<br />
+
+@using (Html.BeginForm("Create", "MasjidExtension", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="container">
+        <form class="form-horizontal form-label-left">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="MasjidName" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Masjid Name</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="txtMasjidName" value="@Model.MasjidName" name="MasjidName" placeholder="Masjid Name">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="Area" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Area</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="Area" value="@Model.Area" name="Area" placeholder="Area">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="ConstructionCost" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Construction Cost</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="ConstructionCost" value="@Model.ConstructionCost" name="ConstructionCost" placeholder="Construction Cost">
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="ExistingFloors" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Existing Floors</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="ExistingFloors" value="@Model.ExistingFloors" name="ExistingFloors" placeholder="Existing Floors">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="AmountCollected" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Amount Collected</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="AmountCollected" value="@Model.AmountCollected" name="AmountCollected" placeholder="Amount Collected">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="CommitteeName" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Committee Name</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="CommitteeName" value="@Model.CommitteeName" name="CommitteeName" placeholder="Committee Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="Name" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Name</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="Name" value="@Model.Name" name="Name" placeholder="Name">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="Head" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Head</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="Head" value="@Model.Head" name="Head" placeholder="Head">
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="EngineerName" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Engineer Name</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="EngineerName" value="@Model.EngineerName" name="EngineerName" placeholder="Engineer Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="EngineerContact" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Engineer Contact</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="EngineerContact" value="@Model.EngineerContact" name="EngineerContact" placeholder="Engineer Contact">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="ElevationImg" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Elevation Image</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="ElevationImg" value="@Model.ElevationImg" name="ElevationImg" placeholder="Elevation Image">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="PlanImg" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Plan Image</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="PlanImg" value="@Model.PlanImg" name="PlanImg" placeholder="Plan Image">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="ConstructionImg1" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Construction Image1</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="ConstructionImg1" value="@Model.ConstructionImg1" name="ConstructionImg1" placeholder="Construction Image1">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="ConstructionImg2" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Construction Image2</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="ConstructionImg2" value="@Model.ConstructionImg2" name="ConstructionImg2" placeholder="Construction Image2">
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="ConstructionImg3" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Construction Image3</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="ConstructionImg3" value="@Model.ConstructionImg3" name="ConstructionImg3" placeholder="Construction Image3">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-xs-12">
+                        <label for="Status" class="control-label col-lg-4 col-md-4 col-sm-3 col-xs-4">Status</label>
+                        <div class="col-lg-8 col-md-8 col-sm-9 col-xs-8">
+                            <input type="text" class="form-control" id="Status" value="@Model.Status" name="Status" placeholder="Status">
+                        </div>
+                    </div>
+
+
+                    <input type="hidden" id="hdnCategoryId" value="@Model.Id" name="Id" />
+                    <input type="hidden" id="hdnCategoryId" value="@Model.CreatedBy" name="Id" />
+                    <input type="hidden" id="hdnCategoryId" value="@Model.CreatedDate" name="Id" />
+                    <input type="hidden" id="hdnCategoryId" value="@Model.Status" name="Id" />
+
+                    <div class="form-group col-lg-12">
+                        <div class="col-md-offset-5 col-md-2">
+                            @if (Model.Id != null && Model.Id != 0)
+                            {
+                                <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                                    Update
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                                    Register
+                                </button>
+                            }
+                        </div>
+                        <div class="col-md-2">
+                            <button value="Edit"
+                                    class="btn-block btn btn-danger" type="button" id="addressSearch"
+                                    onclick="location.href='@Url.Action("Index", "MasjidExtension")'">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+}

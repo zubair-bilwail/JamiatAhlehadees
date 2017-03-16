@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CommonLayer.CommonModels.MasjidLandRequest>
+@{
+    ViewBag.Title = "Index";
+  
+}
+
+<h2>Masjid Land Request</h2>
+
+
+<div class="col-lg-12">
+    <button value="Create New"
+            class="btn btn-info btn-sm" type="button" id="addressSearch"
+            onclick="location.href='@Url.Action("Create")'">
+        <span class="glyphicon glyphicon-plus"></span>Add New
+    </button>
+</div>
+<div class="col-lg-12">
+    <table class="table table-bordered table-hover table-responsive">
+        <thead>
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Location</b></td>              
+                <td><b>LandArea</b></td>
+                <td><b>LandPrice</b></td>
+                <td><b>TotalLandValue</b></td>
+                @*<td><b>PurchasingFrom</b></td>
+                <td><b>AmountPaid</b></td>
+                <td><b>AmountNeeded</b></td>
+                <td><b>TimePeriod</b></td>
+                <td><b>ReligiouPlaces</b></td>
+                <td><b>ReligiousPlaceHowFar</b></td>
+                <td><b>ReligiousPlaceDetails</b></td>*@
+                <td><b>CommitteeName</b></td>
+                <td><b>MasjidName</b></td>
+                <td><b>UserName</b></td>
+                <td><b>CreatedDate</b></td>
+                <td><b>CreatedBy</b></td>
+                <td><b>Status</b></td>
+                <td>Edit</td>
+                <td>Details</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Location</td>                  
+                    <td>@item.LandArea</td>
+                    <td>@item.LandPrice</td>
+                    <td>@item.TotalLandValue</td>
+                    @*<td>@item.PurchasingFrom</td>
+                    <td>@item.AmountPaid</td>
+                    <td>@item.AmountNeeded</td>
+                    <td>@item.TimePeriod</td>
+                    <td>@item.ReligiouPlaces</td>
+                    <td>@item.ReligiousPlaceHowFar</td>
+                    <td>@item.ReligiousPlaceDetails</td>*@
+                    <td>@item.CommitteeName</td>
+                    <td>@item.MasjidName</td>
+                    <td>@item.UserName</td>
+                    <td>@item.CreatedDate</td>
+                    <td>@item.CreatedBy</td>
+                    <td>@item.Status</td>
+
+
+                    <td>
+                        <button value="Edit"
+                                class="btn btn-primary btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Create", "MasjidLandRequest", new { id = item.Id })'">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button value="Details"
+                                class="btn btn-primary btn-primary" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Details", "MasjidLandRequest" ,new {id = item.Id })'">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </button>
+                    </td>
+                    <td>
+                        <button value="Delete"
+                                class="btn btn-danger btn-sm" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Delete", "MasjidLandRequest", new { id = item.Id })'">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

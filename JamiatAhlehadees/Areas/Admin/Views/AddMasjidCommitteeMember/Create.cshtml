@@ -1,0 +1,146 @@
+﻿@model CommonLayer.CommonModels.AddMasjidCommitteeMember
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="box-header with-border">
+    <h3 class="box-title">Add Masjid Committee Member</h3>
+</div>
+<br />
+
+@using (Html.BeginForm("Create", "AddMasjidCommitteeMember", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <form class="form-horizontal form-label-left">
+
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">Committee Name</label>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <select class="form-control select2_single ddnCommitteeId " id="ddnCommitteeId" name="CommitteeId">
+                            <option value="0">Select Committee Name</option>
+
+                            @if (Model.AddMasjidCommitteeList != null)
+                            {
+                                foreach (var item in Model.AddMasjidCommitteeList)
+                                {
+                                    string isSelected = string.Empty;
+                                    if (item.Id == Model.CommitteeId)
+                                    {
+                                        isSelected = "selected";
+                                    }
+                                    <option value="@item.Id" @isSelected>@item.CommitteeName</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-12">
+                    <label class="control-label col-lg-offset-3 col-md-2 col-sm-1 col-xs-12">User Name</label>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <select class="form-control select2_single ddnuserid " id="ddnuserid" name="userId">
+                            <option value="0">Select User Name</option>
+                            @if (Model.UserList != null)
+                            {
+                                foreach (var item in Model.UserList)
+                                {
+                                    string isSelected = string.Empty;
+                                    if (item.Id == Model.UserID)
+                                    {
+                                        isSelected = "selected";
+                                    }
+                                    <option value="@item.Id" @isSelected>@item.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <input type="hidden" id="hdnId" value="@Model.Id" name="Id" />
+                <input type="hidden" id="hdnCreatedBy" value="@Model.CreatedBy" name="CreatedBy" />
+                <input type="hidden" id="hdnCreatedDate" value="@Model.CreateDate" name="CreateDate" />
+                <input type="hidden" id="hdnStatus" value="@Model.Status" name="Status" />
+                <div class="form-group col-lg-12">
+                    <div class="col-md-offset-5 col-md-2">
+                        @if (Model.Id != null && Model.Id != 0)
+                        {
+                            <button type="submit" class="btn-block btn btn-success" data-id="@Model.Id" id="btnRegisterUpdate">
+                                Update
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn-block btn btn-success" data-id="0" id="btnRegister">
+                                Register
+                            </button>
+                        }
+                    </div>
+                    <div class="col-md-2">
+                        <button value="Cancel"
+                                class="btn-block btn btn-danger" type="button" id="addressSearch"
+                                onclick="location.href='@Url.Action("Index")'">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/toastr.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).on("click", "#btnRegister,#btnRegisterUpdate", function (e) {
+            var _MasjidCommitteeMembers = {
+                Id: $("#hdnId").val(),
+                CommitteeId: $(".ddnCommitteeId").val(),
+                userId: $(".ddnuserid").val(),
+                CreatedBy: $("#hdnCreatedBy").val(),
+                CreatedDate: $("#hdnCreatedDate").val(),
+                Status: $("#hdnStatus").val(),
+            };
+            buttonDisabledReg();
+            $.ajax({
+                url: "http://localhost:49248/Admin/AddMasjidCommitteeMember/Create",
+                type: "POST",
+                data: _MasjidCommitteeMembers,
+                success: function (response) {
+                    location.href = '/Admin/AddMasjidCommitteeMember/Index';
+                  //  $("#HalqaList").empty().append(response);
+                },
+                error: function (err) {
+                    toastr.error("Registration failed: Internal server error");
+                    buttonEnableReg();
+                    console.log(err);
+                }
+            });
+        });
+    });
+        function buttonEnableReg() {
+        $("#btnRegisterUpdate span,#btnRegister span").hide();
+        $("#btnRegisterUpdate,#btnRegister").prop("disabled", false);
+    }
+
+
+        function buttonDisabledReg() {
+            $("#btnRegisterUpdate span,#btnRegister span").show();
+            $("#btnRegisterUpdate,#btnRegister").prop("disabled", true);
+
+            function ClearFields() {
+                $(".RequiredTextField").each(function () {
+                    $(this).val('');
+                });
+
+            }
+        }
+
+</script>
+
+
